@@ -1,0 +1,55 @@
+{{!-- Container de cadastro --}}
+<div id="ProdContainer">
+
+    {{!-- Título do formulário --}}
+    <div id="titulo-form">
+        <p> Edição de Produtos </p>
+    </div>
+    
+    {{!-- Breve descriçao para o usuário --}}
+    <p id="subtitulo-form"> Edite aqui os produtos da sua loja. </p>
+
+    {{!-- Div para o formulário de cadastro dos produtos --}}
+    <div id="form-principal">
+
+        {{!-- For each --}}
+        {{#each post}}
+            {{#dataValues}}
+
+                {{!-- Formulário de edição --}}
+                <form action="/atualizar" method="POST" id="form-cad">
+                    
+                    <input type="hidden" name="id" id="id" value="{{id}}">
+
+                    {{!-- Div para input: nome --}}
+                    <div id="input-nome">
+                        <label for="nome"> Nome </label>
+                        <input type="text" name="nome" placeholder="Nome do produto" value="{{nome}}">
+                    </div>
+
+                    {{!-- Div para input: estoque --}}
+                    <div id="input-estoque">
+                        <label for="nome"> Estoque </label>
+                        <input type="number" name="estoque" placeholder="Quantidade" value="{{estoque}}">
+                    </div>
+
+                    {{!-- Div para input: status --}}
+                    <div id="input-status">
+
+                        {{!-- Select de status (Boolean) --}}
+                        <label for="stays"> Status </label>
+                        <select name="status">
+                            <option value="1" selected> Em estoque </option>
+                            <option value="0"> Esgotado </option>
+                        </select>
+                    </div>
+                    <div id="button-submit-CadForm">
+                        <button type="submit"> Editar </button>
+                    </div>
+                </form>
+
+            {{/dataValues}}
+        {{/each}}
+    </div>
+
+</div>

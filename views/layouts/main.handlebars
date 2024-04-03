@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+    <title>SISTEMA DE AGENDAMENTO - CLIENTES</title>
+
+    <style>
+        /* Import de Fontes */
+        @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+        
+        body
+        {
+            background-color: #1586cc;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #navbar
+        {
+            background-color: #121212;
+            display: flex;
+            border-top-left-radius: 1vw;
+            border-top-right-radius: 1vw;
+            font-size: 1.5vw;
+            box-shadow: inset rgb(61, 61, 61) 0 -2vw 1vw -0.8vw;
+        }
+
+        #navbar ul
+        {
+            display: flex;
+            list-style: none;
+        }
+
+        #navbar li
+        {
+            padding-right: 1vw;
+        }
+
+        #navbar li a
+        {
+            text-decoration: none;
+            color: #FFF8E7;
+            transition: all 0.1s ease-in;
+            font-family: "Nunito Sans", sans-serif;
+        }
+
+        #navbar li a:hover
+        {
+            font-weight: bold;
+            transition: all 0.1s ease-in;
+        }
+
+        /* Container principal - Index */
+
+        #ProdContainer
+        {
+            font-family: "Nunito Sans", sans-serif;
+            font-size: 2vw;
+            text-align: center;
+            background-color: white;
+            width: fit-content;
+            border-radius: 1vw;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            padding: 2vw;
+            box-shadow: 0vw 0vw 4vw 1vw rgba(0, 0, 0, 0.2);
+        }
+
+            /* Título do Formulário*/
+            #titulo-form
+            {
+                background-color: #E1341E;
+                position: relative;
+                bottom: 3.5vw;
+                border-radius: 0.5vw;                
+                margin-left: -1.5vw;
+                margin-right: -1.5vw;
+            }
+            #titulo-form p
+            {
+                color: white;
+                font-weight: bold;
+            }
+
+            /* Subtítulo do Form */
+            #subtitulo-form
+            {
+                font-size: 1.5vw;
+                position: relative;
+                bottom: 4vw;
+            }
+            
+
+                /* Configurações do Formulário */
+                #form-cad
+                {                    
+                    display: flex;
+                    font-size: 1.8vw;
+                    margin-top: -4vw;
+                }
+
+
+                /* Inputs */
+
+                    /* Input: nome */
+                    #input-nome input
+                    {
+                        width: 20vw;
+                        margin: 1vw;
+                        margin-top: 0;
+                        font-size: 1.2vw;
+                    }
+
+                    /* Input: estoque */
+                    #input-estoque input
+                    {
+                        width: 8vw;
+                        margin-right: 1vw;
+                        margin-left: 1vw;
+                        font-size: 1.2vw;
+                    }
+
+                    /* Input: status */
+                    #input-status select
+                    {
+                        width: 10vw;
+                        margin-left: 1vw;
+                        margin-right: 1vw;
+                        font-size: 1.2vw;
+                    }
+
+                    /* Botão de enviar */                
+                    #button-submit-CadForm
+                    {
+                        margin-left: 1vw;
+                    }
+                    #button-submit-CadForm button
+                    {
+                        position: relative;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+
+                        background-color: #2a882f;
+                                                
+                        border: none;
+                        border-radius: 0.5vw;
+                        color: white;
+                        padding: 1vw;
+                        margin-top: 0.35vw;
+                        text-align: center;
+                        text-decoration: none;
+                        font-weight: bold;
+
+                        transition: all 0.1s ease-in;
+                    }
+                    #button-submit-CadForm button:hover
+                    {
+                        border-radius: 1vw;
+                        background-color: #41a746;
+                        transition: all 0.1s ease-in; 
+                    }
+
+        /* Fim do container principal - Index */
+
+        /* Tabela de Produtos - Consultar */
+        
+        table
+        {
+            border-collapse: collapse;
+            border: 0.3vw solid #ededed;
+            border-radius: 2vw;
+            margin-top: -3vw;
+            font-size: 1.5vw;
+            width: 80vw;
+        }
+
+        tbody tr 
+        {
+            height: fit-content;
+            border-bottom: 0.5vw solid #d1d1d1;
+            background-color: #fbfbfb;
+            text-align: center;
+
+        }
+
+        tbody td
+        {
+            width: fit-content;
+            padding: 1vw;
+            width: 30vw;
+        }
+
+        #título
+        {
+            background-color: #3b975a;
+            height: 30px;
+            color: #fff;
+            font-size: 1.7vw;
+        }
+
+        td button
+        {
+            background-color: #1586cc;
+            border: 0;
+            text-align: center;
+            font-size: 1.2vw;
+            padding: 0.5vw;
+            padding-left: 1vw;
+            padding-right: 1vw;
+            border-radius: 0.5vw;
+            color: white;
+            font-weight: bold;
+            transition: all 0.1s ease-in-out;
+        }
+
+        td button:hover
+        {
+            background-color: #115b8a;
+            transition: all 0.1s ease-in-out;
+        }
+
+        button a
+        {
+            text-decoration: none;
+        }
+
+        #statusDotAtivo
+        {
+            width: 1vw;
+            height: 1vw;
+            background-color: #41a746;
+
+            position: relative;
+            float: right;
+            top: 0.6vw;
+            right: 1.5vw;
+
+            border-radius: 10vw;
+
+        }
+
+        #statusDotDesativo
+        {
+            width: 1vw;
+            height: 1vw;
+            background-color: #c51717;
+
+            position: relative;
+            float: right;
+            top: 0.6vw;
+            right: 1.5vw;
+
+            border-radius: 10vw;
+        }
+
+        #voltar-btn
+        {
+            margin-top: 2vw;
+            border: 0;
+            color: white;
+            background-color: #1586cc;
+            padding: 1vw;
+            border-radius: 0.5vw;
+            font-size: 1.3vw;
+            padding-top: 0.5vw;
+            padding-bottom: 0.5vw;
+            transition: all 0.1s ease-in-out;
+        }
+
+        #voltar-btn:hover
+        {
+            background-color: #10689e;
+            transition: all 0.1s ease-in-out;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <ul>
+            <li> <a href="/"> Início </a> </li>
+            <li> <a href="/consulta"> Consulta </a> </li>
+        </ul>
+    </nav>
+
+    {{{body}}}
+</body>
+</html>

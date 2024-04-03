@@ -1,0 +1,48 @@
+{{!-- Container de cadastro --}}
+<div id="ProdContainer">
+
+    {{!-- Título do formulário --}}
+    <div id="titulo-form">
+        <p> Consulta de Produtos </p>
+    </div>
+    
+    <table>
+        <thead>
+            <tr id="título">
+                <th>Nome</th>
+                <th>Estoque</th>
+                <th>Status</th>
+                <th>Excluir</th>
+                <th>Editar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each post}}
+                {{#dataValues}}
+                    <tr>
+                        <td>{{nome}}</td>
+                        
+                        {{#if status}}
+                            <!-- Se o status for 1 -->
+                            <td>{{estoque}}</td>
+                        {{else}}
+                            <!-- Se o status for 0 -->
+                            <td> 0 </td>
+                        {{/if}}
+
+                        {{#if status}}
+                            <!-- Se o status for 1 -->
+                            <td> Em estoque <div id="statusDotAtivo"></div> </td>
+                        {{else}}
+                            <!-- Se o status for 0 -->
+                            <td> Esgotado <div id="statusDotDesativo"></div> </td>
+                        {{/if}}
+                        <td> <button type="button"><a href="/editar/{{id}}" style="color:inherit">Editar</a></button> </td>
+                        <td> <button type="button"><a href="/excluir/{{id}}" style="color:inherit">Excluir</a></button> </td>
+                    </tr>            
+                {{/dataValues}}
+            {{/each}}
+        </tbody>
+    </table>
+
+</div>
